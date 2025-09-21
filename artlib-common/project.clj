@@ -2,10 +2,16 @@
   :description "Utilities for making generative art"
   :monolith/inherit true
 
-  :plugins [[com.dedovic/lein-version "1.0.0"]]
-  :middleware [lein-version.plugin/middleware]
-
   :dependencies [[org.clojure/clojure :scope "provided"]]
+
+  :managed-dependencies [[org.clojure/clojure "1.12.0"]
+                         [org.clojure/core.match "1.0.0"]
+                         [net.mikera/core.matrix "0.63.0"]
+
+                         ;; this
+                         [com.dedovic/artlib-core "0.0.19-SNAPSHOT"]
+                         [com.dedovic/artlib-common "0.0.19-SNAPSHOT"]
+                         [com.dedovic/artlib-cuda "0.0.19-SNAPSHOT"]]
 
   :profiles {:test
              {:dependencies

@@ -4,13 +4,11 @@
             [lein-monolith "1.10.3"]
             [com.dedovic/lein-version "1.0.0"]]
 
-  :middleware [lein-version.plugin/middleware]
-
   :monolith {:inherit 
              [:url :license :deploy-repositories :release-tasks]
 
              :inherit-leaky 
-             [:repositories :license :managed-dependencies]
+             [:repositories :license]
              
              :project-dirs 
              ["artlib-core" "artlib-cuda" "artlib-common"]}
@@ -29,9 +27,9 @@
                          [net.mikera/core.matrix "0.63.0"]
 
                          ;; this
-                         [com.dedovic/artlib-core :version]
-                         [com.dedovic/artlib-common :version]
-                         [com.dedovic/artlib-cuda :version]
+                         [com.dedovic/artlib-core "0.0.19-SNAPSHOT"]
+                         [com.dedovic/artlib-common "0.0.19-SNAPSHOT"]
+                         [com.dedovic/artlib-cuda "0.0.19-SNAPSHOT"]
 
                          ; progress bar
                          [progrock "0.1.2"]
@@ -46,25 +44,56 @@
                          ; numerical integration
                          [org.apache.commons/commons-math3 "3.6.1"]]
 
+  ;; this is awful and i feel like it can be improved easily
   :release-tasks [;; 1 - tests
                   ["vcs" "assert-committed"]
                   ["monolith" "each" "test"]
 
-                  ;; 2 - bump versions and update changelog sections
+                  ;; 2 - bump to release versions
+                  ;; 2.1 - bump project versions
                   ["change" "version" "leiningen.release/bump-version" "release"]
                   ["monolith" "each" "change" "version" "leiningen.release/bump-version" "release"]
+
+                  ;; 2.2 - bump version of artlib-common
+                  ["change" ":managed-dependencies:com.dedovic/artlib-common" "leiningen.release/bump-version" "release"]
+                  ["monolith" "each" "change" ":managed-dependencies:com.dedovic/artlib-common" "leiningen.release/bump-version" "release"]
+
+                  ;; 2.3 - bump version of artlib-core
+                  ["change" ":managed-dependencies:com.dedovic/artlib-core" "leiningen.release/bump-version" "release"]
+                  ["monolith" "each" "change" ":managed-dependencies:com.dedovic/artlib-core" "leiningen.release/bump-version" "release"]
+
+                  ;; 2.4 - bump version of artlib-cuda
+                  ["change" ":managed-dependencies:com.dedovic/artlib-cuda" "leiningen.release/bump-version" "release"]
+                  ["monolith" "each" "change" ":managed-dependencies:com.dedovic/artlib-cuda" "leiningen.release/bump-version" "release"]
+
+                  ;; 3 - changelog release
                   ["changelog" "release"]
 
-                  ;; 3 - commit changes
+                  ;; 4 - commit changes
                   ["vcs" "commit"]
                   ["vcs" "tag" "--no-sign"]                 ;; TODO: start signing things
 
-                  ;; 4 - deploy to clojars
+                  ;; 5 - deploy to clojars
                   ["monolith" "each" "deploy"]
 
-                  ;; 5 - bump version for new dev cycle and push
-                  ["change" "version" "leiningen.release/bump-version"]
-                  ["monolith" "each" "change" "version" "leiningen.release/bump-version"]
+                  ;; 6 - bump version for new dev cycle
+                  ;; 6.1 - bump project versions
+                  ["change" "version" "leiningen.release/bump-version" "release"]
+                  ["monolith" "each" "change" "version" "leiningen.release/bump-version" "release"]
+
+                  ;;; 6.2 - bump version of artlib-common
+                  ["change" ":managed-dependencies:com.dedovic/artlib-common" "leiningen.release/bump-version"]
+                  ["monolith" "each" "change" ":managed-dependencies:com.dedovic/artlib-common" "leiningen.release/bump-version"]
+
+                  ;; 6.3 - bump version of artlib-core
+                  ["change" ":managed-dependencies:com.dedovic/artlib-core" "leiningen.release/bump-version"]
+                  ["monolith" "each" "change" ":managed-dependencies:com.dedovic/artlib-core" "leiningen.release/bump-version"]
+
+                  ;; 6.4 - bump version of artlib-cuda
+                  ["change" ":managed-dependencies:com.dedovic/artlib-cuda" "leiningen.release/bump-version"]
+                  ["monolith" "each" "change" ":managed-dependencies:com.dedovic/artlib-cuda" "leiningen.release/bump-version"]
+
+                  ;; 7 - commit changes
                   ["vcs" "commit"]
                   ["vcs" "push"]]
 
