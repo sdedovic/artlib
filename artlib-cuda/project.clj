@@ -1,4 +1,4 @@
-(defproject com.dedovic/artlib-cuda "0.0.19-SNAPSHOT"
+(defproject com.dedovic/artlib-cuda "0.0.19"
   :description "GPU (via CUDA) accelerated utilities for making generative art"
   :monolith/inherit true
 
@@ -18,9 +18,9 @@
                          [net.mikera/core.matrix "0.63.0"]
 
                          ;; this
-                         [com.dedovic/artlib-core "0.0.19-SNAPSHOT"]
-                         [com.dedovic/artlib-common "0.0.19-SNAPSHOT"]
-                         [com.dedovic/artlib-cuda "0.0.19-SNAPSHOT"]
+                         [com.dedovic/artlib-core "0.0.19"]
+                         [com.dedovic/artlib-common "0.0.19"]
+                         [com.dedovic/artlib-cuda "0.0.19"]
 
                          ; progress bar
                          [progrock "0.1.2"]
