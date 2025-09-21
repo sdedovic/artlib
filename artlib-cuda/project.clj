@@ -1,4 +1,4 @@
-(defproject com.dedovic/artlib-cuda "0.0.19"
+(defproject com.dedovic/artlib-cuda "0.0.20-SNAPSHOT"
   :description "GPU (via CUDA) accelerated utilities for making generative art"
   :monolith/inherit true
 

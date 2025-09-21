@@ -1,4 +1,4 @@
-(defproject com.dedovic/artlib-parent "0.0.19"
+(defproject com.dedovic/artlib-parent "0.0.20-SNAPSHOT"
   :plugins [[lein-changelog "0.3.2"]
             [lein-pprint "1.3.2"]
             [lein-monolith "1.10.3"]
@@ -78,8 +78,8 @@
 
                   ;; 6 - bump version for new dev cycle
                   ;; 6.1 - bump project versions
-                  ["change" "version" "leiningen.release/bump-version" "release"]
-                  ["monolith" "each" "change" "version" "leiningen.release/bump-version" "release"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["monolith" "each" "change" "version" "leiningen.release/bump-version"]
 
                   ;;; 6.2 - bump version of artlib-common
                   ["change" ":managed-dependencies:com.dedovic/artlib-common" "leiningen.release/bump-version"]
