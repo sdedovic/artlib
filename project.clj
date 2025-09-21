@@ -13,6 +13,8 @@
              :project-dirs 
              ["artlib-core" "artlib-cuda" "artlib-common"]}
 
+  :aliases {"install-all" ["monolith" "each" "install"]}
+
   :url "https://github.com/sdedovic/artlib-core"
   :license {:name "Apache License, Version 2.0" 
             :url  "https://www.apache.org/licenses/LICENSE-2.0.html"}
