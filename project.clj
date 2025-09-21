@@ -95,6 +95,9 @@
 
                   ;; 7 - commit changes
                   ["vcs" "commit"]
-                  ["vcs" "push"]]
+                  ["vcs" "push"]
+                  
+                  ;; 8 - start next cycle
+                  ["monolith" "each" "install"]]
 
   :dependencies [[org.clojure/clojure :scope "provided"]])

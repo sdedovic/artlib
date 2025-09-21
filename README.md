@@ -8,6 +8,11 @@ Monorepo for generative / computation art tooling in Clojure.
 
 
 # development
+```bash
+lein monolith each install
+```
+
+
 ## testing
 ```bash
 lein monolith each check
