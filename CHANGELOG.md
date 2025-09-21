@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.20] — 2025-09-20
+
 ## [0.0.19] — 2025-09-20
 ### Added
 - CUDA 2D gradient noise accelerator
@@ -54,4 +56,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.0.17]: https://github.com/sdedovic/artlib-core/compare/0.1.0...0.0.17
 [0.0.18]: https://github.com/sdedovic/artlib-core/compare/0.0.17...0.0.18
 [0.0.19]: https://github.com/sdedovic/artlib-core/compare/0.0.18...0.0.19
-[Unreleased]: https://github.com/sdedovic/artlib-core/compare/0.0.19...HEAD
+[0.0.20]: https://github.com/sdedovic/artlib-core/compare/0.0.19...0.0.20
+[Unreleased]: https://github.com/sdedovic/artlib-core/compare/0.0.20...HEAD
